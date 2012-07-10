@@ -25,7 +25,7 @@ exports.hello = function(request,response){
 	//Send the message to the console
 	//Envia el mensaje a la consola
 	//console.log('Hello World\n to %s', response);
-	console.log("Hello World to the %s",request.connection.remoteAddress);
+	console.log("Hello World to %s",request.connection.remoteAddress);
 	
 	
 	//Send the message to the client
