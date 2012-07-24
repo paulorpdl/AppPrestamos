@@ -1,2 +1,35 @@
 h1= title
-p Welcome to #{title}
+	div#wrapper
+		form(method='post')
+			| Llene los datos a continuación para registrar un prestamo
+			div
+				div#field
+					label(for='Borrower') Prestamista
+					input#Borrower(type='text', name='borrower')
+				div#field
+					label(for='Item') Articulo
+					input#Item(type='text', name='item')
+				div#field
+					label(for='LoanDate.Day') Fecha del Prestamo
+					select#Item(name='loan_date.day')
+						-for (var day = 1; day <= 31; day++)
+							-if(new Date().getDate() == day)
+								option(selected='selected') #{day}
+							-else
+								option #{day}
+					-
+					select#Item(name='loan_date.month')
+						-for (var month = 1; month <= 12; month++)
+							-if(new Date().getMonth() == month)
+								option(selected='selected') #{month}
+							-else
+								option #{month}	
+					-
+					select#Item(name='loan_date.year')
+						-for (var year = 1960; year <= new Date().getFullYear(); year++)
+							-if(new Date().getFullYear() == year)
+								option(selected='selected') #{year}
+							-else
+								option #{year}
+				div#field
+					input(type='submit', value='Enviar')
